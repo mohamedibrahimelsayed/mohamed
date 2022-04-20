@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_project/modules/Student_Attendance/Auto/Attendance_Auto_Screen.dart';
 import 'package:flutter_project/modules/Student_Attendance/Home/Attendance_Home_Screen.dart';
 import 'package:flutter_project/shared/components/componants.dart';
 

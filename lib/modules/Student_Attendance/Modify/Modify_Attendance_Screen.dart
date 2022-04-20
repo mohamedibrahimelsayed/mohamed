@@ -8,7 +8,11 @@ class ModifyAttendanceScreen extends StatefulWidget {
   _AutoAttendanceDoneScreenState createState() => _AutoAttendanceDoneScreenState();
 }
 class _AutoAttendanceDoneScreenState extends State<ModifyAttendanceScreen> {
-  bool isChecked = false;
+ // bool isChecked = false;
+  static int _len = 15;
+
+  List<bool> isChecked = List.generate(_len, (index) => false);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -94,20 +98,21 @@ class _AutoAttendanceDoneScreenState extends State<ModifyAttendanceScreen> {
                     ),
                     Checkbox(
                       activeColor: Color.fromRGBO(255, 193, 79, 1) ,
-                      value: isChecked,
-                      onChanged: (bool value)
+                      value: isChecked[index],
+                      onChanged: (checked)
                       {
-                        setState(()
-                        {
-                          isChecked = value;
-                        });
+                        setState(
+                              () {
+                            isChecked[index] = checked;
+                          },
+                        );
                       },
                     ),
                   ],
                 ),
               ),
               separatorBuilder: (context , index) => myDivider(),
-              itemCount: 15,
+              itemCount: _len,
             ),
           ),
           Padding(

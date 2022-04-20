@@ -5,7 +5,13 @@ import 'package:flutter_project/modules/Student_Attendance/Report/Attendance_Rep
 import 'package:flutter_project/modules/Student_Attendance/UserProfile/User_Profile_Screen.dart';
 import 'package:flutter_project/shared/components/componants.dart';
 
-class AttendanceHomeScreen extends StatelessWidget {
+class AttendanceHomeScreen extends StatefulWidget {
+  @override
+  _AttendanceHomeScreenState createState() => _AttendanceHomeScreenState();
+}
+class _AttendanceHomeScreenState extends State<AttendanceHomeScreen> {
+ // bool color =true;
+  int _selectedIndex = -1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +20,7 @@ class AttendanceHomeScreen extends StatelessWidget {
         elevation: 0.0,
         titleSpacing: 20,
         leading: IconButton(
-        icon:Icon(Icons.arrow_back_ios),
+          icon:Icon(Icons.arrow_back_ios),
           color: Colors.white,
           onPressed: ()
           {
@@ -57,20 +63,6 @@ class AttendanceHomeScreen extends StatelessWidget {
               ),
             ),
               ),
-
-          // Padding(
-          //   padding: const EdgeInsets.symmetric(
-          //     horizontal: 10,
-          //   ),
-          //   child: CircleAvatar(
-          //
-          //     radius: 30,
-          //     backgroundImage:
-          //     NetworkImage(
-          //       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHPzEJprm2H7C--vIa6fa1zz_QQZOb-CBpnQ&usqp=CAU',
-          //     ),
-          //   ),
-          // ),
         ],
       ),
       body: Stack(
@@ -111,12 +103,21 @@ class AttendanceHomeScreen extends StatelessWidget {
                           shrinkWrap: true,
                           itemBuilder: (context, index) => Stack(
                             children: [
-                              Container(
-                                height: 200,
-                                width: 200,
-                                decoration: BoxDecoration(
-                                  color: Color.fromRGBO(255, 193, 79, 1) ,
-                                  borderRadius: BorderRadius.circular(15),
+                              InkWell(
+                                onTap: ()
+                               {
+                                setState(()
+                                {
+                                 _selectedIndex =index;
+                                });
+                               },
+                                child: Container(
+                                  height: 200,
+                                  width: 200,
+                                  decoration: BoxDecoration(
+                                   color: _selectedIndex ==index ? Colors.blue :Color.fromRGBO(255, 193, 79, 1),
+                                    borderRadius: BorderRadius.circular(15),
+                                  ),
                                 ),
                               ),
                               Container(
@@ -145,11 +146,7 @@ class AttendanceHomeScreen extends StatelessWidget {
                                           color: Color.fromRGBO(22, 29, 111, 1),
                                           fontSize: 25,
                                           fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-
+                                        ),),],),
                                 ),
                               ),
                             ],
@@ -206,7 +203,6 @@ class AttendanceHomeScreen extends StatelessWidget {
                                   onPressed: ()
                                   {
                                     navigateTo(context, AttendanceAutoScreen());
-
                                   },
                                   child: Text(
                                     'Auto Attendance',
