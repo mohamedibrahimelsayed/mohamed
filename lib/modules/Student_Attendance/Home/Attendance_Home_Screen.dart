@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_project/modules/Student_Attendance/Auto/Attendance_Auto_Screen.dart';
 import 'package:flutter_project/modules/Student_Attendance/Modify/Modify_Attendance_Screen.dart';
+import 'package:flutter_project/modules/Student_Attendance/Modify/modify_1.dart';
 import 'package:flutter_project/modules/Student_Attendance/Report/Attendance_Report_Screen.dart';
+import 'package:flutter_project/modules/Student_Attendance/Report/Report_1.dart';
 import 'package:flutter_project/modules/Student_Attendance/UserProfile/User_Profile_Screen.dart';
 import 'package:flutter_project/shared/components/componants.dart';
 
@@ -252,7 +254,7 @@ class _AttendanceHomeScreenState extends State<AttendanceHomeScreen> {
                                 TextButton(
                                   onPressed: ()
                                   {
-                                    navigateTo(context, AttendanceReportScreen());
+                                    navigateTo(context, Report1());
 
                                   },
                                   child: Text(
@@ -305,7 +307,7 @@ class _AttendanceHomeScreenState extends State<AttendanceHomeScreen> {
                             TextButton(
                               onPressed: ()
                               {
-                                navigateTo(context, ModifyAttendanceScreen());
+                                navigateTo(context, Modify1());
 
                               },
                               child: Text(
