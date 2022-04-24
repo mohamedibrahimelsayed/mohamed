@@ -1,14 +1,14 @@
-abstract class AttendanceLoginStates{}
+abstract class LoginStates {}
 
-class AttendanceLoginInitialState extends AttendanceLoginStates{}
+class LoginInitialState extends LoginStates {}
 
-class AttendanceLoginLoadingState extends AttendanceLoginStates{}
+class LoginLoadingState extends LoginStates {}
 
-class AttendanceLoginSuccessState extends AttendanceLoginStates{}
+class LoginSuccessState extends LoginStates {}
 
-class AttendanceLoginErrorState extends AttendanceLoginStates
-{
+class LoginErrorState extends LoginStates {
   final String error;
-  AttendanceLoginErrorState(this.error);
-
+  LoginErrorState(this.error);
 }
+
+class LoginChangePasswordVisibilityState extends LoginStates {}
