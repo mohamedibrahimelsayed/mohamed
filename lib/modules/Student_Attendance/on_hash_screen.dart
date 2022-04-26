@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_project/modules/Student_Attendance/BeforeLogin/Before_Login.dart';
 import 'package:flutter_project/modules/Student_Attendance/login/Attendance_Login_Screen.dart';
 import 'package:flutter_project/shared/components/componants.dart';
 
@@ -13,7 +14,7 @@ class _OnHashScreenState extends State<OnHashScreen> {
   void initState() {
     super.initState();
     Timer(Duration(seconds: 3), () {
-      navigateAndFinish(context, AttendanceLoginScreen());
+      navigateAndFinish(context, BeforeLoginScreen());
     });
   }
   @override
