@@ -124,6 +124,7 @@ Widget defaultFormField({
   IconData suffix,
   Function suffixPressed,
   bool isClickable = true,
+  Decoration decoration ,
 
 }) =>
     TextFormField(

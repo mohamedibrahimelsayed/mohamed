@@ -22,6 +22,9 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color.fromRGBO(255, 193, 79, 1),
+        elevation: 0.0,
+        titleSpacing: 10,
         title: Text(
           title[_selectedIndex],
         ),
