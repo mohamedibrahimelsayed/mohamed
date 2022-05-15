@@ -14,9 +14,6 @@ class _DoctorScreenState extends State<DoctorScreen> {
   var phone = TextEditingController();
   var address = TextEditingController();
   var password = TextEditingController();
-  // String _selectedGender = 'male';
-  String dropdownvalue = 'Computer Science';
-  var items =  ['Computer Science','Engineering','Media','Business Administration',];
   String dropdownvalues = 'Male';
   var item =  ['Male','Female',];
   @override
