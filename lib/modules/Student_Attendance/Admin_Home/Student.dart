@@ -11,12 +11,12 @@ class _StudentScreenState extends State<StudentScreen> {
   var emailController = TextEditingController();
   var Fname = TextEditingController();
   var Lname = TextEditingController();
-  var ST_id = TextEditingController();
-  var Password = TextEditingController();
+  var phone = TextEditingController();
+  var address = TextEditingController();
   var year = TextEditingController();
   // String _selectedGender = 'male';
-  String dropdownvalue = 'Computer Science';
-  var items =  ['Computer Science','Engineering','Media','Business Administration',];
+  String dropdownvalue = 'first year';
+  var items =  ['first year','Second Year','third year','Fourth year',];
   String dropdownvalues = 'Male';
   var item =  ['Male','Female',];
 
@@ -54,7 +54,7 @@ class _StudentScreenState extends State<StudentScreen> {
                 type: TextInputType.name,
                 validate: (String value) {
                   if (value.isEmpty) {
-                    return 'please enter your name';
+                    return 'please enter your first name';
                   }
                 },
                 label: 'First Name',
@@ -68,25 +68,11 @@ class _StudentScreenState extends State<StudentScreen> {
                 type: TextInputType.name,
                 validate: (String value) {
                   if (value.isEmpty) {
-                    return 'please enter your name';
+                    return 'please enter your list name';
                   }
                 },
                 label: 'Last Name',
                 prefix: Icons.drive_file_rename_outline,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(15),
-              child: defaultFormField(
-                controller: ST_id,
-                type: TextInputType.number,
-                validate: (String value) {
-                  if (value.isEmpty) {
-                    return 'please enter your ID';
-                  }
-                },
-                label: 'Student ID',
-                prefix: Icons.app_registration,
               ),
             ),
             Padding(
@@ -106,15 +92,29 @@ class _StudentScreenState extends State<StudentScreen> {
             Padding(
               padding: const EdgeInsets.all(15),
               child: defaultFormField(
-                controller: Password,
+                controller: phone,
+                type: TextInputType.number,
+                validate: (String value) {
+                  if (value.isEmpty) {
+                    return 'please enter your phone';
+                  }
+                },
+                label: 'Phone',
+                prefix: Icons.phone,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(15),
+              child: defaultFormField(
+                controller: address,
                 type: TextInputType.visiblePassword,
                 validate: (String value) {
                   if (value.isEmpty) {
-                    return 'please enter your password';
+                    return 'please enter your address';
                   }
                 },
-                label: 'Password',
-                prefix: Icons.lock_outline,
+                label: 'address',
+                prefix: Icons.home,
               ),
             ),
             Padding(
@@ -124,23 +124,23 @@ class _StudentScreenState extends State<StudentScreen> {
                 type: TextInputType.number,
                 validate: (String value) {
                   if (value.isEmpty) {
-                    return 'please enter your year';
+                    return 'please enter your Age';
                   }
                 },
-                label: 'Grade',
-                prefix: Icons.ac_unit,
+                label: 'Age',
+                prefix: Icons.date_range,
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(15.0),
               child: Row(
                 children: [
-                  Text('Department :',
-                  style:
-                  TextStyle(
-                    fontWeight:FontWeight.bold,
-                    fontSize: 18,
-                  ),
+                  Text('Academic Year :',
+                    style:
+                    TextStyle(
+                      fontWeight:FontWeight.bold,
+                      fontSize: 18,
+                    ),
                   ),
                   SizedBox(width: 15,),
                   Column(
@@ -177,12 +177,13 @@ class _StudentScreenState extends State<StudentScreen> {
                       fontSize: 18,
                     ),
                   ),
-                  SizedBox(width: 15,),
+                  SizedBox(width: 20,),
                   Column(
                     children: [
                       DropdownButton(
                         value: dropdownvalues,
-                        icon: Icon(Icons.keyboard_arrow_down),
+                        icon: Icon(
+                            Icons.keyboard_arrow_down),
                         items:item.map((String items) {
                           return DropdownMenuItem(
                               value: items,

@@ -11,7 +11,8 @@ class _DoctorScreenState extends State<DoctorScreen> {
   var emailController = TextEditingController();
   var Fname = TextEditingController();
   var Lname = TextEditingController();
-  var DR_id = TextEditingController();
+  var phone = TextEditingController();
+  var address = TextEditingController();
   var password = TextEditingController();
   // String _selectedGender = 'male';
   String dropdownvalue = 'Computer Science';
@@ -45,7 +46,7 @@ class _DoctorScreenState extends State<DoctorScreen> {
                 type: TextInputType.name,
                 validate: (String value) {
                   if (value.isEmpty) {
-                    return 'please enter your name';
+                    return 'please enter your first name';
                   }
                 },
                 label: 'First Name',
@@ -59,25 +60,11 @@ class _DoctorScreenState extends State<DoctorScreen> {
                 type: TextInputType.name,
                 validate: (String value) {
                   if (value.isEmpty) {
-                    return 'please enter your name';
+                    return 'please enter your list name';
                   }
                 },
                 label: 'Last Name',
                 prefix: Icons.drive_file_rename_outline,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(15),
-              child: defaultFormField(
-                controller: DR_id,
-                type: TextInputType.number,
-                validate: (String value) {
-                  if (value.isEmpty) {
-                    return 'please enter your ID';
-                  }
-                },
-                label: 'Doctor ID',
-                prefix: Icons.app_registration,
               ),
             ),
             Padding(
@@ -108,39 +95,33 @@ class _DoctorScreenState extends State<DoctorScreen> {
                 prefix: Icons.lock_outline,
               ),
             ),
+
             Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Row(
-                children: [
-                  Text('Department :',
-                    style:
-                    TextStyle(
-                      fontWeight:FontWeight.bold,
-                      fontSize: 18,
-                    ),
-                  ),
-                  SizedBox(width: 15,),
-                  Column(
-                    children: [
-                      DropdownButton(
-                        value: dropdownvalue,
-                        icon: Icon(Icons.keyboard_arrow_down),
-                        items:items.map((String items) {
-                          return DropdownMenuItem(
-                              value: items,
-                              child: Text(items)
-                          );
-                        }
-                        ).toList(),
-                        onChanged: (String newValue){
-                          setState(() {
-                            dropdownvalue = newValue;
-                          });
-                        },
-                      ),
-                    ],
-                  ),
-                ],
+              padding: const EdgeInsets.all(15),
+              child: defaultFormField(
+                controller: address,
+                type: TextInputType.visiblePassword,
+                validate: (String value) {
+                  if (value.isEmpty) {
+                    return 'please enter your address';
+                  }
+                },
+                label: 'address',
+                prefix: Icons.home,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(15),
+              child: defaultFormField(
+                controller: phone,
+                type: TextInputType.number,
+                validate: (String value) {
+                  if (value.isEmpty) {
+                    return 'please enter your phone';
+                  }
+                },
+                label: 'phone',
+                prefix: Icons.phone,
               ),
             ),
             Padding(
