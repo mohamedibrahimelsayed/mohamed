@@ -5,7 +5,6 @@ class StudentScreen extends StatefulWidget {
   @override
   _StudentScreenState createState() => _StudentScreenState();
 }
-
 class _StudentScreenState extends State<StudentScreen> {
   var formKey = GlobalKey<FormState>();
   var emailController = TextEditingController();
